@@ -1,15 +1,26 @@
 import Theme from './Theme';
-import { Container, Circle, CircleInside, Line, OtherLine } from './styles';
+import {
+    Container,
+    PokemonContainer,
+    Circle,
+    CircleInside,
+    Line,
+    OtherLine,
+    Image,
+} from './styles';
 
 function App() {
     return (
         <Theme>
             <Container>
-                <Circle>
-                    <CircleInside />
-                    <Line />
-                    <OtherLine />
-                </Circle>
+                <PokemonContainer>
+                    <Circle>
+                        <CircleInside />
+                        <Line />
+                        <OtherLine />
+                        <Image src="https://i.ibb.co/DgdM9rQ/pokemon-PNG127.png" />
+                    </Circle>
+                </PokemonContainer>
             </Container>
         </Theme>
     );
