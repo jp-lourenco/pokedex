@@ -1,10 +1,16 @@
 import Theme from './Theme';
-import { Container } from './styles';
+import { Container, Circle, CircleInside, Line, OtherLine } from './styles';
 
 function App() {
     return (
         <Theme>
-            <Container></Container>
+            <Container>
+                <Circle>
+                    <CircleInside />
+                    <Line />
+                    <OtherLine />
+                </Circle>
+            </Container>
         </Theme>
     );
 }
