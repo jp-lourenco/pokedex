@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import Theme from './Theme';
 import {
     Container,
@@ -35,8 +36,13 @@ function App() {
         }
     }
 
+    function createTheme() {
+        const type = pokemonData.pokemon[number].type[0];
+        return Theme[type];
+    }
+
     return (
-        <Theme>
+        <ThemeProvider theme={createTheme()}>
             <Container>
                 <StatsContainer>
                     <NameContainer>
@@ -67,7 +73,7 @@ function App() {
                     </Plus>
                 </PokemonContainer>
             </Container>
-        </Theme>
+        </ThemeProvider>
     );
 }
 
