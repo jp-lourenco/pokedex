@@ -21,7 +21,7 @@ export const PokemonContainer = styled.div`
 export const Circle = styled.div`
     width: 350px;
     height: 350px;
-    border: 5px solid rgba(0, 255, 0, 0.3);
+    border: 5px solid ${(props) => props.theme.colors.secundary};
     border-radius: 50%;
     margin: 0 auto;
 `;
@@ -31,14 +31,14 @@ export const CircleInside = styled(Circle)`
     width: 300px;
     height: 300px;
     position: relative;
-    border: 5px solid ${(props) => props.theme.colors.grass};
+    border: 5px solid ${(props) => props.theme.colors.primary};
 `;
 
 export const Line = styled.div`
     width: 420px;
     height: 5px;
     border-radius: 10px;
-    background-color: ${(props) => props.theme.colors.grass};
+    background-color: ${(props) => props.theme.colors.primary};
     transform: rotate(-45deg);
     position: relative;
     top: -50%;
@@ -62,14 +62,14 @@ export const Plus = styled.button`
     height: 50px;
     background-color: transparent;
     border: none;
-    color: ${(props) => props.theme.colors.grass};
+    color: ${(props) => props.theme.colors.primary};
     font-size: 50px;
     text-align: center;
     outline: none;
     margin-left: 30px;
 
     &:hover {
-        color: green;
+        color: ${(props) => props.theme.colors.secundary};
         cursor: pointer;
     }
 `;
@@ -96,7 +96,7 @@ export const NameContainer = styled.div`
         content: '';
         width: 50px;
         height: 5px;
-        background-color: ${(props) => props.theme.colors.grass};
+        background-color: ${(props) => props.theme.colors.primary};
         margin-top: -13px;
         margin-bottom: 13px;
     }
