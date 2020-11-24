@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const PageContainer = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 100%;
+
+    @media (max-width: 858px) {
+        flex-direction: column;
+    }
+`;
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-image: radial-gradient(#333 1%, transparent 6%);
-    background-color: #141414;
-    background-position: 0 0;
-    background-size: 50px 50px;
+    align-items: center;
 `;
 
 export const PokemonContainer = styled.div`
@@ -15,7 +23,6 @@ export const PokemonContainer = styled.div`
     flex-direction: row;
     align-items: center;
     height: 100%;
-    padding: 150px 0;
 `;
 
 export const Circle = styled.div`
@@ -66,7 +73,7 @@ export const Plus = styled.button`
     font-size: 50px;
     text-align: center;
     outline: none;
-    margin-left: 30px;
+    margin-left: 20px;
 
     &:hover {
         color: ${(props) => props.theme.colors.secundary};
@@ -76,13 +83,13 @@ export const Plus = styled.button`
 
 export const Minus = styled(Plus)`
     margin-left: 0;
-    margin-right: 30px;
+    margin-right: 20px;
 `;
 
 export const StatsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 150px 0;
+    margin-top: 50px;
 `;
 
 export const NameContainer = styled.div`
@@ -122,4 +129,62 @@ export const Type = styled.p`
 
 export const Num = styled(Type)`
     margin: 2px 0;
+`;
+
+export const Evolutions = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-bottom: 180px;
+`;
+
+export const FirstEvolution = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const SecondEvolution = styled(FirstEvolution)`
+    margin-left: 15px;
+    margin-right: 15px;
+`;
+
+export const ThirdEvolution = styled(FirstEvolution)``;
+
+export const NumberEvolution = styled.p`
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    color: rgb(165, 205, 83);
+`;
+
+export const NameEvolutionContainer = styled.div`
+    background: linear-gradient(
+        14deg,
+        rgb(165, 205, 83) 60%,
+        rgb(193, 217, 144) 65%
+    );
+    display: flex;
+    width: 150px;
+    height: 25px;
+    padding: 3px;
+    justify-content: flex-end;
+    border: inset #879a65 3px;
+    font-weight: bold;
+`;
+
+export const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(13deg, #afafaf 50%, #ffffff 80%, #afafaf 90%);
+    width: 156px;
+    height: 150px;
+    border: inset #879a65 3px;
+    cursor: pointer;
+`;
+
+export const EvolutionImage = styled.img`
+    width: 70%;
+    height: 70%;
 `;
