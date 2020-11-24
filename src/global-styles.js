@@ -3,11 +3,17 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html,
   body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     line-height: 1.5;
     margin: 0;
-    overflow: hidden;
+    background-image: radial-gradient(#333 1%, transparent 6%);
+    background-color: #141414;
+    background-position: 0 0;
+    background-size: 50px 50px;
   }
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
