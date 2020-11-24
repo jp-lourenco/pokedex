@@ -3,10 +3,11 @@ import { ThemeProvider } from 'styled-components';
 import Theme from './Theme';
 import * as Components from './styles';
 import pokemonData from './pokemon';
+import getEvolutions from './utils.js';
 
 function App() {
     const [number, setNumber] = useState(
-        Math.floor(Math.random() * pokemonData.pokemon.length * 0),
+        Math.floor(Math.random() * pokemonData.pokemon.length),
     );
 
     function plusNumber() {
@@ -23,77 +24,7 @@ function App() {
 
     const type = pokemonData.pokemon[number].type[0];
 
-    if (
-        pokemonData.pokemon[number].next_evolution &&
-        !pokemonData.pokemon[number].prev_evolution
-    ) {
-        if (pokemonData.pokemon[number].next_evolution.length > 1) {
-            var firstEvolution = pokemonData.pokemon[number];
-            var secondEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].next_evolution[0].num) -
-                        1
-                ];
-            var thirdEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].next_evolution[1].num) -
-                        1
-                ];
-        } else {
-            var firstEvolution = pokemonData.pokemon[number];
-            var secondEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].next_evolution[0].num) -
-                        1
-                ];
-            var thirdEvolution = null;
-        }
-    } else if (
-        pokemonData.pokemon[number].next_evolution &&
-        pokemonData.pokemon[number].prev_evolution
-    ) {
-        var firstEvolution =
-            pokemonData.pokemon[
-                Number(pokemonData.pokemon[number].prev_evolution[0].num) - 1
-            ];
-        var secondEvolution = pokemonData.pokemon[number];
-
-        var thirdEvolution =
-            pokemonData.pokemon[
-                Number(pokemonData.pokemon[number].next_evolution[0].num) - 1
-            ];
-    } else if (pokemonData.pokemon[number].prev_evolution) {
-        if (pokemonData.pokemon[number].prev_evolution.length > 1) {
-            var firstEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].prev_evolution[0].num) -
-                        1
-                ];
-            var secondEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].prev_evolution[1].num) -
-                        1
-                ];
-
-            var thirdEvolution = pokemonData.pokemon[number];
-        } else {
-            var firstEvolution =
-                pokemonData.pokemon[
-                    Number(pokemonData.pokemon[number].prev_evolution[0].num) -
-                        1
-                ];
-            var secondEvolution = pokemonData.pokemon[number];
-
-            var thirdEvolution = null;
-        }
-    } else if (
-        !pokemonData.pokemon[number].next_evolution &&
-        !pokemonData.pokemon[number].prev_evolution
-    ) {
-        var firstEvolution = pokemonData.pokemon[number];
-        var secondEvolution = null;
-        var thirdEvolution = null;
-    }
+    const Evolutions = getEvolutions(number);
 
     return (
         <ThemeProvider theme={Theme[type]}>
@@ -136,26 +67,24 @@ function App() {
                 </Components.Container>
                 <Components.Evolutions>
                     <Components.FirstEvolution
-                        onClick={() =>
-                            setNumber(Number(firstEvolution.num) - 1)
-                        }
+                        onClick={() => setNumber(Number(Evolutions[0].num) - 1)}
                     >
                         <Components.NumberEvolution>
                             I
                         </Components.NumberEvolution>
                         <Components.ImageContainer>
                             <Components.EvolutionImage
-                                src={firstEvolution.img}
+                                src={Evolutions[0].img}
                             />
                         </Components.ImageContainer>
                         <Components.NameEvolutionContainer>
-                            {firstEvolution.name}
+                            {Evolutions[0].name}
                         </Components.NameEvolutionContainer>
                     </Components.FirstEvolution>
                     <Components.SecondEvolution
                         onClick={() =>
-                            secondEvolution &&
-                            setNumber(Number(secondEvolution.num) - 1)
+                            Evolutions[1] &&
+                            setNumber(Number(Evolutions[1].num) - 1)
                         }
                     >
                         <Components.NumberEvolution>
@@ -164,20 +93,20 @@ function App() {
                         <Components.ImageContainer>
                             <Components.EvolutionImage
                                 src={
-                                    secondEvolution
-                                        ? secondEvolution.img
+                                    Evolutions[1]
+                                        ? Evolutions[1].img
                                         : '/pokebola.png'
                                 }
                             />
                         </Components.ImageContainer>
                         <Components.NameEvolutionContainer>
-                            {secondEvolution ? secondEvolution.name : 'No Data'}
+                            {Evolutions[1] ? Evolutions[1].name : 'No Data'}
                         </Components.NameEvolutionContainer>
                     </Components.SecondEvolution>
                     <Components.ThirdEvolution
                         onClick={() =>
-                            thirdEvolution &&
-                            setNumber(Number(thirdEvolution.num) - 1)
+                            Evolutions[2] &&
+                            setNumber(Number(Evolutions[2].num) - 1)
                         }
                     >
                         <Components.NumberEvolution>
@@ -186,14 +115,14 @@ function App() {
                         <Components.ImageContainer>
                             <Components.EvolutionImage
                                 src={
-                                    thirdEvolution
-                                        ? thirdEvolution.img
+                                    Evolutions[2]
+                                        ? Evolutions[2].img
                                         : '/pokebola.png'
                                 }
                             />
                         </Components.ImageContainer>
                         <Components.NameEvolutionContainer>
-                            {thirdEvolution ? thirdEvolution.name : 'No Data'}
+                            {Evolutions[2] ? Evolutions[2].name : 'No Data'}
                         </Components.NameEvolutionContainer>
                     </Components.ThirdEvolution>
                 </Components.Evolutions>
