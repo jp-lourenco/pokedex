@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PageContainer = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
     height: 100%;
 
     @media (max-width: 858px) {
@@ -14,15 +14,14 @@ export const PageContainer = styled.div`
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    margin-top: 45px;
 `;
 
 export const PokemonContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100%;
 `;
 
 export const Circle = styled.div`
@@ -134,7 +133,8 @@ export const Num = styled(Type)`
 export const Evolutions = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 30px;
+    margin-top: 95px;
+    margin-right: 30px;
     margin-bottom: 180px;
 `;
 
@@ -185,6 +185,30 @@ export const ImageContainer = styled.div`
 `;
 
 export const EvolutionImage = styled.img`
+    width: 70%;
+    height: 70%;
+`;
+
+export const ListContainer = styled.div`
+    width: 100px;
+    height: ${({ height }) => height}px;
+    padding: 0 20px;
+    overflow-y: scroll;
+`;
+export const PokeList = styled.ul`
+    list-style: none;
+    padding: 0px;
+`;
+
+export const PokeItem = styled.li`
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+`;
+
+export const PokeImage = styled.img`
     width: 70%;
     height: 70%;
 `;
