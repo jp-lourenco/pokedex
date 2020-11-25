@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: #141414;
     background-position: 0 0;
     background-size: 50px 50px;
+    overflow: hidden;
+
+    @media (max-width: 1058px) {
+        overflow: auto;
+    }
   }
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

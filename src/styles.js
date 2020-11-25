@@ -6,8 +6,9 @@ export const PageContainer = styled.div`
     justify-content: space-between;
     height: 100%;
 
-    @media (max-width: 858px) {
+    @media (max-width: 1058px) {
         flex-direction: column;
+        align-items: center;
     }
 `;
 
@@ -16,6 +17,10 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 45px;
+
+    @media (max-width: 1050px) {
+        margin-right: 60px;
+    }
 `;
 
 export const PokemonContainer = styled.div`
@@ -64,6 +69,7 @@ export const Image = styled.img`
 `;
 
 export const Plus = styled.button`
+    display: none;
     width: 50px;
     height: 50px;
     background-color: transparent;
@@ -78,11 +84,24 @@ export const Plus = styled.button`
         color: ${(props) => props.theme.colors.secundary};
         cursor: pointer;
     }
+
+    @media (max-width: 1058px) {
+        display: block;
+    }
+
+    @media (max-width: 558px) {
+        margin-left: 3px;
+    }
 `;
 
 export const Minus = styled(Plus)`
     margin-left: 0;
     margin-right: 20px;
+
+    @media (max-width: 558px) {
+        margin-left: 60px;
+        margin-right: 3px;
+    }
 `;
 
 export const StatsContainer = styled.div`
@@ -136,6 +155,16 @@ export const Evolutions = styled.div`
     margin-top: 95px;
     margin-right: 30px;
     margin-bottom: 180px;
+
+    @media (max-width: 1058px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 50px;
+    }
+
+    @media (max-width: 558px) {
+        margin-right: 0px;
+    }
 `;
 
 export const FirstEvolution = styled.div`
@@ -171,6 +200,10 @@ export const NameEvolutionContainer = styled.div`
     justify-content: flex-end;
     border: inset #879a65 3px;
     font-weight: bold;
+
+    @media (max-width: 558px) {
+        width: 120px;
+    }
 `;
 
 export const ImageContainer = styled.div`
@@ -182,6 +215,11 @@ export const ImageContainer = styled.div`
     height: 150px;
     border: inset #879a65 3px;
     cursor: pointer;
+
+    @media (max-width: 558px) {
+        width: 126px;
+        height: 120px;
+    }
 `;
 
 export const EvolutionImage = styled.img`
@@ -192,23 +230,27 @@ export const EvolutionImage = styled.img`
 export const ListContainer = styled.div`
     width: 100px;
     height: ${({ height }) => height}px;
-    padding: 0 20px;
+    padding: 0 10px 0 20px;
     overflow-y: scroll;
 `;
 export const PokeList = styled.ul`
     list-style: none;
     padding: 0px;
+
+    @media (max-width: 1050px) {
+        display: none;
+    }
 `;
 
 export const PokeItem = styled.li`
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    margin: 0;
+    margin: 5px 0;
     cursor: pointer;
 `;
 
 export const PokeImage = styled.img`
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
 `;
