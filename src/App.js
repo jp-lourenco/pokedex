@@ -26,9 +26,23 @@ function App() {
 
     const Evolutions = getEvolutions(number);
 
+    const height = window.innerHeight;
+
     return (
         <ThemeProvider theme={Theme[type]}>
             <Components.PageContainer>
+                <Components.ListContainer height={height}>
+                    <Components.PokeList>
+                        {pokemonData.pokemon.map((item) => (
+                            <Components.PokeItem
+                                onClick={() => setNumber(item.num - 1)}
+                                key={item.num}
+                            >
+                                <Components.PokeImage src={item.img} />
+                            </Components.PokeItem>
+                        ))}
+                    </Components.PokeList>
+                </Components.ListContainer>
                 <Components.Container>
                     <Components.PokemonContainer>
                         <Components.Minus onClick={() => minusNumber()}>
